@@ -20,6 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         // this data would typically be retrieved from a database
         this.accountDetails = new TreeMap<>();
         this.accountDetails.put("ted", "$2a$06$rtacOjuBuSlhnqMO2GKxW.Bs8J6KI0kYjw/gtF0bfErYgFyNTZRDm");
+        this.accountDetails.put("john", "$2a$10$nKOFU.4/iK9CqDIlBkmMm.WZxy2XKdUSlImsG8iKsAP57GMcXwLTS");
+        this.accountDetails.put("admin", "$2a$04$Bv5g.NGnIyaTPS7Lz78hV.q06oYK4/T/Ivl5qk3JBSYn2j4QZMQFy");
     }
 
     @Override

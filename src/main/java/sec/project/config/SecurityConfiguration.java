@@ -22,7 +22,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // no real security at the moment
         http.authorizeRequests()
-                .anyRequest().permitAll();
+                //.anyRequest().permitAll();
+                .anyRequest().authenticated(); //+++ Everything behind authentication
+        http.formLogin() //+++ Added .formLogin, i.e. login page
+                .permitAll();
     }
 
     @Autowired
