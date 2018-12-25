@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Secret Admin Page</title>
+    </head>
+    <body>
+
+        <h1>You can do Admin tricks here</h1>
+
+        <form action="#" th:action="@{/password}" method="POST">
+            <p><label for="passwd">Password</label>: <input type="text" name="passwd" id="passwd"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+
+        <p></p>
+    </body>
+</html>
