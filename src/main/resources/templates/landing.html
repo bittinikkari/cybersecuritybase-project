@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags">
     <head>
         <title>Secure Are We?</title>
     </head>
@@ -7,6 +9,11 @@
         <h1>What do you want to do?</h1>
         <li> <a href="form.html">Register to event</a> </li>
         <li> <a href="password.html">Change password</a> </li>
-        <li> <a href="admin.html">Admin page</a> </li>
+        <li> <a href="/logout">Logout</a> </li>
+        
+        <p></p>
+        <div sec:authorize="hasAuthority('ADMIN')">
+            <a href="admin.html">Secret Admin Page</a>
+        </div>
     </body>
 </html>

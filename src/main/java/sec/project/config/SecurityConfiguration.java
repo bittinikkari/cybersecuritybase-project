@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -23,9 +24,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // no real security at the moment
         http.authorizeRequests()
                 //.anyRequest().permitAll();
-                .anyRequest().authenticated(); //+++ Everything behind authentication
-        http.formLogin() //+++ Added .formLogin, i.e. login page
-                .permitAll();
+                .anyRequest().authenticated().and() //+++ Everything behind authentication
+                .formLogin().permitAll().and() //+++ Login page
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login"); //+++Logout functionality
     }
 
     @Autowired
