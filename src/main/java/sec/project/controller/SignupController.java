@@ -31,7 +31,8 @@ public class SignupController {
     }
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String loadAdminPage() {
+    public String loadAdminPage(Model model) {
+        model.addAttribute("admin", signupRepository.findAll());
         return "admin";
     }
     

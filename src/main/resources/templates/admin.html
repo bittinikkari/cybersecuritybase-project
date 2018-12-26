@@ -6,6 +6,29 @@
     <body>
 
         <h1>You can do Admin tricks here</h1>
+        
+        <h1>Registered Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Address </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${admin.empty}">
+                    <td colspan="2"> No Registrations </td>
+                </tr>
+                <tr th:each="visitor : ${admin}">
+                    <td><span th:utext="${visitor.name}"> Title </span></td>
+                    <td><span th:utext="${visitor.address}"> Author </span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <ul>
+            <li th:each="visitor : ${admin}" th:text="${visitor.name} + ${visitor.address}">user name</li>
+        </ul>
 
         <form action="#" th:action="@{/password}" method="POST">
             <p><label for="passwd">Password</label>: <input type="text" name="passwd" id="passwd"/></p>
