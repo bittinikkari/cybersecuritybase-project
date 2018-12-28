@@ -2,11 +2,14 @@ package sec.project.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import sec.project.domain.Account;
 import sec.project.domain.Signup;
 import sec.project.repository.SignupRepository;
 
@@ -26,10 +29,12 @@ public class SignupController {
         return "landing";
     }
     
+    /*
     @RequestMapping(value = "/password", method = RequestMethod.GET)
     public String loadPasswdForm() {
         return "password";
     }
+    */
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String loadAdminPage(Model model) {
