@@ -19,18 +19,6 @@ public class AccountController {
     @Autowired
     private PasswordEncoder encoder;
 
-    /*
-    @RequestMapping("*")
-    public String defaultMapping() {
-        return "redirect:/form";
-    }
-
-    @RequestMapping("/form")
-    public String passwordForm() {
-        return "form";
-    }
-    */
-    
     @RequestMapping(value = "/password", method = RequestMethod.GET)
     public String loadPasswdForm() {
         return "password";
@@ -40,17 +28,10 @@ public class AccountController {
     public String changePassword(Authentication authentication, @RequestParam String password) {
         Account account = accountRepository.findByUsername(authentication.getName());
         if (account == null) {
-            System.out.println("ACCOUNT == NULL");
-            System.out.println("authentication.getName() == " +authentication.getName());
-            //System.out.println("FindByUsername() == " +findByUsername(authentication.getName()));
-            System.out.println("Account == " +account);
             return "redirect:/index";
         }
 
         account.setPassword(encoder.encode(password));
-        System.out.println("SALASANAN VAIHTO ALKAA");
-        System.out.println("Uusi salasana " +password);
-        System.out.println("Encoded " +encoder.encode(password));
         accountRepository.save(account);
 
         return "thanks";

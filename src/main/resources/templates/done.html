@@ -14,7 +14,7 @@
         </form>
         
         <ul>
-            <li th:each="visitor : ${done}" th:text="${visitor.name} + ${visitor.address}">No Search Results</li>
+            <li th:each="visitor : ${done}" th:text="${visitor.name} + ' from ' + ${visitor.address} + ' is coming.'">No Search Results</li>
         </ul>
         
         

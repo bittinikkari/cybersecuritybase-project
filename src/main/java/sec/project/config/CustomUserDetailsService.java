@@ -19,20 +19,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private AccountRepository accountRepository;
     
-    //private Map<String, String> accountDetails;
-
     @PostConstruct
     public void init() {
-        // this data would typically be retrieved from a database
-        /*
-        this.accountDetails = new TreeMap<>();
-        this.accountDetails.put("ted", "$2a$06$rtacOjuBuSlhnqMO2GKxW.Bs8J6KI0kYjw/gtF0bfErYgFyNTZRDm");
-        this.accountDetails.put("john", "$2a$10$nKOFU.4/iK9CqDIlBkmMm.WZxy2XKdUSlImsG8iKsAP57GMcXwLTS");
-        this.accountDetails.put("admin", "$2a$04$Bv5g.NGnIyaTPS7Lz78hV.q06oYK4/T/Ivl5qk3JBSYn2j4QZMQFy");
-        */
-        
-        
-        
         // username and password is "ted"
         Account ted = new Account();
         ted.setUsername("ted");
@@ -58,7 +46,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         Account account = accountRepository.findByUsername(username);
         
         if (account == null) {
-        //if (!this.accountDetails.containsKey(username)) {
             throw new UsernameNotFoundException("No such user: " + username);
         }
 
@@ -66,7 +53,6 @@ public class CustomUserDetailsService implements UserDetailsService {
             return new org.springframework.security.core.userdetails.User(
                 username,
                 account.getPassword(),
-                //this.accountDetails.get(username),
                 true,
                 true,
                 true,
@@ -75,8 +61,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         
         else return new org.springframework.security.core.userdetails.User(
-                //username,
-                //this.accountDetails.get(username),
                 username,
                 account.getPassword(),
                 true,

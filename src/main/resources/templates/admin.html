@@ -5,7 +5,7 @@
     </head>
     <body>
 
-        <h1>Registered Users</h1>
+        <h1>Registered Users - for Admin Eyes Only</h1>
         <table>
             <thead>
                 <tr>
@@ -24,15 +24,6 @@
             </tbody>
         </table>
         
-        <ul>
-            <li th:each="visitor : ${admin}" th:text="${visitor.name} + ${visitor.address}">user name</li>
-        </ul>
-
-        <form action="#" th:action="@{/password}" method="POST">
-            <p><label for="passwd">Password</label>: <input type="text" name="passwd" id="passwd"/></p>
-            <p><input type="submit" value="Submit" /></p>
-        </form>
-
         <p></p>
         <li><a href="landing.html">Go to Landing page</a></li>
         <li><a href="/logout">Logout</a></li>
