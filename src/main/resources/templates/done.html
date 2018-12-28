@@ -7,9 +7,20 @@
 
         <h1>Thank you! You have been signed up to the event!</h1>
         
+        <h1>Check if your friend is coming</h1>
+        <form action="#" th:action="@{/done}" method="POST">
+            <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+        
+        <ul>
+            <li th:each="visitor : ${done}" th:text="${visitor.name} + ${visitor.address}">No Search Results</li>
+        </ul>
+        
+        
         <h1>What do you want to do next?</h1>
         <li> <a href="landing.html">Go to Landing page</a> </li>
-            <li><a href="/logout">Logout</a></li>
+        <li><a href="/logout">Logout</a></li>
 
     </body>
 </html>

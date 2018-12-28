@@ -1,5 +1,6 @@
 package sec.project.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +55,14 @@ public class SignupController {
 
     @RequestMapping(value = "/done", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("done", signupRepository.findAll());
+        //model.addAttribute("done", signupRepository.findAll());
+        return "done";
+    }
+    
+    @RequestMapping(value = "/done", method = RequestMethod.POST)
+    public String submitQuery(Model model, @RequestParam String name) {
+        //List<Signup> registered = signupRepository.findByName(name);
+        model.addAttribute("done", signupRepository.findByName(name));
         return "done";
     }
     
